@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Joel Sánchez - Ortopedia y Traumatología</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #005baa;
+            --secondary: #8dc63f;
+            --accent: #6eaddc;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4eaf1 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #7bb33a;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero {
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23005baa" fill-opacity="0.1"/><path d="M0 0L100 100" stroke="%23005baa" stroke-opacity="0.2" stroke-width="2"/><path d="M100 0L0 100" stroke="%23005baa" stroke-opacity="0.2" stroke-width="2"/></svg>');
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 1s ease;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .appointment-form {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: slideUp 0.8s ease;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #e1e5eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(110, 173, 220, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 91, 170, 0.2);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 91, 170, 0.3);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0) scale(1);
+        }
+
+        .specialties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .specialty-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .specialty-icon {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .specialty-content {
+            padding: 1.5rem;
+        }
+
+        .specialty-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .specialty-content p {
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        footer {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Nuevos estilos para la gestión de horarios */
+        .availability-info {
+            background-color: #e8f4ff;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .time-slot {
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #e1e5eb;
+            background-color: white;
+        }
+
+        .time-slot:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .time-slot.available {
+            background-color: #f0f9f0;
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .time-slot.selected {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .time-slot.unavailable {
+            background-color: #fff5f5;
+            border-color: var(--danger);
+            color: var(--danger);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: slideUp 0.5s ease;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Estilos para la tarjeta del doctor */
+        .doctor-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .doctor-card {
+            width: 350px;
+            height: 450px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .doctor-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+        }
+
+        .doctor-card.flipped .doctor-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .doctor-card-front, .doctor-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .doctor-card-front {
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            color: white;
+        }
+
+        .doctor-card-back {
+            background: linear-gradient(to bottom, var(--secondary), #a5d66d);
+            color: white;
+            transform: rotateY(180deg);
+            text-align: left;
+        }
+
+        .doctor-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .doctor-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-specialty {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .doctor-contact-info {
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        .flip-instruction {
+            position: absolute;
+            bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Estilos para el CAPTCHA */
+        .captcha-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 2px solid #e9ecef;
+        }
+
+        .captcha-challenge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .captcha-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 5px;
+            user-select: none;
+        }
+
+        .captcha-refresh {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .captcha-refresh:hover {
+            transform: rotate(90deg);
+            background: #7bb33a;
+        }
+
+        /* Protección DDoS */
+        .request-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            z-index: 100;
+        }
+
+        .security-alert {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--danger);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Efectos de clic */
+        .clickable {
+            transition: transform 0.2s ease;
+        }
+
+        .clickable:active {
+            transform: scale(0.97);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .time-slots {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+            
+            .doctor-card {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .captcha-challenge {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="security-alert" id="securityAlert">
+        <i class="fas fa-shield-alt"></i> Se ha detectado actividad inusual. Por favor, espere antes de realizar otra acción.
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <h1>Hospital Los Ángeles</h1>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-outline" id="contactBtn"><i class="fas fa-user-md"></i> Contactar al Doctor</button>
+                <button class="btn btn-primary"><i class="fas fa-phone"></i> Contacto</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="doctor-section">
+            <div class="doctor-card" id="doctorCard">
+                <div class="doctor-card-inner">
+                    <div class="doctor-card-front">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Dr. Joel Sánchez García" class="doctor-image">
+                        <h2 class="doctor-name">Dr. Joel Sánchez García</h2>
+                        <p class="doctor-specialty">Ortopedia y Traumatología</p>
+                        <p class="flip-instruction">Haz clic para ver información de contacto</p>
+                    </div>
+                    <div class="doctor-card-back">
+                        <h3>Información de Contacto</h3>
+                        <div class="doctor-contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-hospital"></i>
+                                <div>
+                                    <strong>Hospital Angeles Pedregal</strong><br>
+                                    Camino de Sta. Teresa 1055–S<br>
+                                    Héroes de Padierna, 10700 Ciudad de México
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <div>
+                                    Torre: <strong>Torre Centro de Especialidades Quirúrgicas</strong><br>
+                                    Consultorio: <strong>980</strong>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>+52 5555689845 Ext. 4980</div>
+                            </div>
+                        </div>
+                        <p class="flip-instruction">Haz clic para volver</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero">
+            <h2>Programe su cita con el Dr. Joel Sánchez</h2>
+            <p>Especialista en Ortopedia, Traumatología y Cirugía de Columna Vertebral. Agende su cita de manera rápida y sencilla. Su bienestar es nuestra prioridad.</p>
+        </section>
+
+        <section class="appointment-form">
+            <h2 class="form-title">Solicitud de Cita Médica</h2>
+            <form id="appointmentForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName"><i class="fas fa-user"></i> Nombres</label>
+                        <input type="text" id="firstName" class="form-control clickable" placeholder="Ingrese sus nombres" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName"><i class="fas fa-user"></i> Apellidos</label>
+                        <input type="text" id="lastName" class="form-control clickable" placeholder="Ingrese sus apellidos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                        <input type="email" id="email" class="form-control clickable" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Teléfono</label>
+                        <input type="tel" id="phone" class="form-control clickable" placeholder="Ingrese su teléfono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate"><i class="fas fa-birthday-cake"></i> Fecha de Nacimiento</label>
+                        <input type="date" id="birthdate" class="form-control clickable" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idNumber"><i class="fas fa-id-card"></i> Número de Identificación</label>
+                        <input type="text" id="idNumber" class="form-control clickable" placeholder="Cédula o documento de identidad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentDate"><i class="fas fa-calendar"></i> Fecha Deseada para la Cita</label>
+                        <input type="date" id="appointmentDate" class="form-control clickable" required min="">
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentTime"><i class="fas fa-clock"></i> Hora Preferida</label>
+                        <div class="availability-info">
+                            <p>Seleccione una fecha para ver los horarios disponibles</p>
+                        </div>
+                        <div class="time-slots" id="timeSlots">
+                            <!-- Los horarios se generarán dinámicamente con JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sección CAPTCHA -->
+                <div class="captcha-container">
+                    <h3><i class="fas fa-robot"></i> Verificación de Seguridad</h3>
+                    <p>Por favor, resuelva el siguiente CAPTCHA para confirmar que no es un robot:</p>
+                    
+                    <div class="captcha-challenge">
+                        <div class="captcha-text" id="captchaText"></div>
+                        <button type="button" class="captcha-refresh" id="refreshCaptcha">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="captchaInput">Ingrese el texto mostrado arriba:</label>
+                        <input type="text" id="captchaInput" class="form-control" placeholder="Texto del CAPTCHA" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason"><i class="fas fa-stethoscope"></i> Motivo de la Consulta</label>
+                    <textarea id="reason" class="form-control clickable" rows="4" placeholder="Describa brevemente el motivo de su consulta" required></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit clickable" id="submitButton">
+                        <i class="fas fa-calendar-check"></i> Solicitar Cita
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="specialties">
+            <h2 class="form-title">Especialidades del Dr. Sánchez</h2>
+            <div class="specialties-grid">
+                <div class="specialty-card clickable">
+                    <div class="specialty-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Ortopedia</h3>
+                        <p>Diagnóstico y tratamiento de enfermedades y lesiones del sistema musculoesquelético.</p>
+                    </div>
+                </div>
+                <div class="specialty-card clickable">
+                    <div class="specialty-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Traumatología</h3>
+                        <p>Manejo de lesiones traumáticas del sistema musculoesquelético.</p>
+                    </div>
+                </div>
+                <div class="specialty-card clickable">
+                    <div class="specialty-icon">
+                        <i class="fas fa-spine"></i>
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Cirugía de Columna</h3>
+                        <p>Especialista en patología raquídea y cirugía de columna vertebral.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="modal-content">
+            <h2><i class="fas fa-check-circle" style="color: var(--success);"></i> Cita Agendada Exitosamente</h2>
+            <p>Su cita ha sido registrada para el <span id="confirmedDate"></span> a las <span id="confirmedTime"></span>.</p>
+            <p>Recibirá un correo de confirmación con los detalles de su cita.</p>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="modalClose">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="request-counter" id="requestCounter">
+        <i class="fas fa-shield-alt"></i> Solicitudes: <span id="requestCount">0</span>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2023 Hospital Los Ángeles. Todos los derechos reservados.</p>
+            <p>Dirección: Av. Principal #1234, Ciudad | Teléfono: (123) 456-7890</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Establecer fecha mínima como hoy
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const todayStr = `${yyyy}-${mm}-${dd}`;
+            document.getElementById('appointmentDate').setAttribute('min', todayStr);
+            
+            // Cargar datos desde cookies si existen
+            if (document.cookie) {
+                const cookies = document.cookie.split(';');
+                const data = {};
+                
+                cookies.forEach(cookie => {
+                    const [key, value] = cookie.split('=');
+                    data[key.trim()] = decodeURIComponent(value);
+                });
+                
+                // Rellenar formulario con datos de las cookies
+                document.getElementById('firstName').value = data.firstName || '';
+                document.getElementById('lastName').value = data.lastName || '';
+                document.getElementById('email').value = data.email || '';
+                document.getElementById('phone').value = data.phone || '';
+                document.getElementById('birthdate').value = data.birthdate || '';
+                document.getElementById('idNumber').value = data.idNumber || '';
+            }
+            
+            // Funcionalidad de la tarjeta del doctor
+            const doctorCard = document.getElementById('doctorCard');
+            const contactBtn = document.getElementById('contactBtn');
+            
+            doctorCard.addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+            
+            contactBtn.addEventListener('click', function() {
+                doctorCard.classList.add('flipped');
+            });
+            
+            // Obtener citas existentes del localStorage
+            let existingAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            
+            // Sistema de protección DDoS
+            let requestCount = 0;
+            let lastRequestTime = 0;
+            const requestLimit = 5; // Límite de solicitudes
+            const timeWindow = 10000; // Ventana de tiempo en milisegundos (10 segundos)
+            
+            function updateRequestCounter() {
+                document.getElementById('requestCount').textContent = requestCount;
+            }
+            
+            function checkRequestLimit() {
+                const now = Date.now();
+                if (now - lastRequestTime < timeWindow) {
+                    requestCount++;
+                    if (requestCount > requestLimit) {
+                        showSecurityAlert();
+                        return false;
+                    }
+                } else {
+                    // Reiniciar contador si ha pasado el tiempo de ventana
+                    requestCount = 1;
+                    lastRequestTime = now;
+                }
+                updateRequestCounter();
+                return true;
+            }
+            
+            function showSecurityAlert() {
+                const alert = document.getElementById('securityAlert');
+                alert.style.display = 'block';
+                
+                // Deshabilitar el formulario
+                document.getElementById('submitButton').disabled = true;
+                
+                // Ocultar la alerta después de 10 segundos
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                    document.getElementById('submitButton').disabled = false;
+                    requestCount = 0;
+                    updateRequestCounter();
+                    lastRequestTime = Date.now();
+                }, 10000);
+            }
+            
+            // Sistema CAPTCHA
+            let currentCaptcha = '';
+            
+            function generateCaptcha() {
+                const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Caracteres más legibles
+                let captcha = '';
+                const length = 6;
+                
+                for (let i = 0; i < length; i++) {
+                    captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                
+                currentCaptcha = captcha;
+                document.getElementById('captchaText').textContent = captcha;
+            }
+            
+            function validateCaptcha() {
+                const userInput = document.getElementById('captchaInput').value;
+                return userInput === currentCaptcha;
+            }
+            
+            // Inicializar CAPTCHA
+            generateCaptcha();
+            
+            // Botón para refrescar CAPTCHA
+            document.getElementById('refreshCaptcha').addEventListener('click', function() {
+                if (checkRequestLimit()) {
+                    generateCaptcha();
+                    document.getElementById('captchaInput').value = '';
+                }
+            });
+            
+            // Función para generar horarios disponibles
+            function generateTimeSlots(selectedDate) {
+                const timeSlotsContainer = document.getElementById('timeSlots');
+                timeSlotsContainer.innerHTML = '';
+                
+                // Horarios de trabajo: 8:00 AM to 12:00 PM y 2:00 PM to 5:00 PM
+                const timeSlots = [
+                    '08:00', '09:00', '10:00', '11:00', 
+                    '14:00', '15:00', '16:00', '17:00'
+                ];
+                
+                // Verificar si la fecha seleccionada es hoy
+                const now = new Date();
+                const isToday = selectedDate === todayStr;
+                
+                timeSlots.forEach(time => {
+                    const timeSlot = document.createElement('div');
+                    timeSlot.classList.add('time-slot', 'clickable');
+                    timeSlot.textContent = time;
+                    timeSlot.dataset.time = time;
+                    
+                    // Verificar si el horario ya está ocupado
+                    const isBooked = existingAppointments.some(app => 
+                        app.date === selectedDate && app.time === time
+                    );
+                    
+                    // Si es hoy, verificar si el horario ya pasó
+                    let isPast = false;
+                    if (isToday) {
+                        const [hours, minutes] = time.split(':').map(Number);
+                        const slotTime = new Date();
+                        slotTime.setHours(hours, minutes, 0, 0);
+                        isPast = now > slotTime;
+                    }
+                    
+                    if (isBooked || isPast) {
+                        timeSlot.classList.add('unavailable');
+                        timeSlot.title = isBooked ? 'Horario no disponible' : 'Horario ya pasó';
+                    } else {
+                        timeSlot.classList.add('available');
+                        timeSlot.addEventListener('click', function() {
+                            // Deseleccionar cualquier otro horario seleccionado
+                            document.querySelectorAll('.time-slot.selected').forEach(slot => {
+                                slot.classList.remove('selected');
+                            });
+                            
+                            // Seleccionar este horario
+                            this.classList.add('selected');
+                            document.querySelector('.availability-info').innerHTML = 
+                                `<p>Horario seleccionado: <strong>${time}</strong></p>`;
+                        });
+                    }
+                    
+                    timeSlotsContainer.appendChild(timeSlot);
+                });
+            }
+            
+            // Evento para cambiar la fecha
+            document.getElementById('appointmentDate').addEventListener('change', function() {
+                const selectedDate = this.value;
+                document.querySelector('.availability-info').innerHTML = 
+                    `<p>Horarios disponibles para el ${formatDate(selectedDate)}</p>`;
+                generateTimeSlots(selectedDate);
+            });
+            
+            // Formatear fecha para mostrar
+            function formatDate(dateStr) {
+                const [year, month, day] = dateStr.split('-');
+                return `${day}/${month}/${year}`;
+            }
+            
+            // Manejar el envío del formulario
+            document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Verificar límite de solicitudes
+                if (!checkRequestLimit()) {
+                    return;
+                }
+                
+                // Validar CAPTCHA
+                if (!validateCaptcha()) {
+                    alert('El código CAPTCHA ingresado es incorrecto. Por favor, inténtelo de nuevo.');
+                    document.getElementById('captchaInput').value = '';
+                    generateCaptcha();
+                    document.getElementById('captchaInput').focus();
+                    return;
+                }
+                
+                // Verificar si se seleccionó un horario
+                const selectedTimeSlot = document.querySelector('.time-slot.selected');
+                if (!selectedTimeSlot) {
+                    alert('Por favor, seleccione un horario disponible.');
+                    return;
+                }
+                
+                // Recopilar datos del formulario
+                const formData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    birthdate: document.getElementById('birthdate').value,
+                    idNumber: document.getElementById('idNumber').value,
+                    date: document.getElementById('appointmentDate').value,
+                    time: selectedTimeSlot.dataset.time,
+                    reason: document.getElementById('reason').value,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Guardar datos en cookies (expiran en 30 días)
+                const expirationDate = new Date();
+                expirationDate.setDate(expirationDate.getDate() + 30);
+                
+                document.cookie = `firstName=${encodeURIComponent(formData.firstName)}; expires=${expirationDate.toUTCString()}; path=/`;
+                document.cookie = `lastName=${encodeURIComponent(formData.lastName)}; expires=${expirationDate.toUTCString()}; path=/`;
+                document.cookie = `email=${encodeURIComponent(formData.email)}; expires=${expirationDate.toUTCString()}; path=/`;
+                document.cookie = `phone=${encodeURIComponent(formData.phone)}; expires=${expirationDate.toUTCString()}; path=/`;
+                document.cookie = `birthdate=${encodeURIComponent(formData.birthdate)}; expires=${expirationDate.toUTCString()}; path=/`;
+                document.cookie = `idNumber=${encodeURIComponent(formData.idNumber)}; expires=${expirationDate.toUTCString()}; path=/`;
+                
+                // Guardar la cita en localStorage
+                existingAppointments.push(formData);
+                localStorage.setItem('appointments', JSON.stringify(existingAppointments));
+                
+                // Mostrar confirmación
+                document.getElementById('confirmedDate').textContent = formatDate(formData.date);
+                document.getElementById('confirmedTime').textContent = formData.time;
+                document.getElementById('confirmationModal').style.display = 'flex';
+                
+                // Regenerar CAPTCHA después de enviar el formulario
+                generateCaptcha();
+                document.getElementById('captchaInput').value = '';
+                
+                // Aquí normalmente se enviarían los datos a un servidor
+                console.log('Datos de la cita:', formData);
+            });
+            
+            // Cerrar modal
+            document.getElementById('modalClose').addEventListener('click', function() {
+                document.getElementById('confirmationModal').style.display = 'none';
+                
+                // Recargar horarios disponibles
+                const selectedDate = document.getElementById('appointmentDate').value;
+                if (selectedDate) {
+                    generateTimeSlots(selectedDate);
+                }
+                
+                // Limpiar formulario
+                document.getElementById('reason').value = '';
+                document.querySelectorAll('.time-slot.selected').forEach(slot => {
+                    slot.classList.remove('selected');
+                });
+            });
+            
+            // Añadir efecto de clic a todos los elementos con la clase "clickable"
+            const clickableElements = document.querySelectorAll('.clickable');
+            clickableElements.forEach(element => {
+                element.addEventListener('mousedown', function() {
+                    this.style.transform = 'scale(0.97)';
+                });
+                
+                element.addEventListener('mouseup', function() {
+                    this.style.transform = '';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

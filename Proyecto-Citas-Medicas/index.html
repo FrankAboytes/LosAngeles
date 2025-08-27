@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Los Ángeles - Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <header class="fixed-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <h1>Hospital Los Ángeles</h1>
+            </div>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="location.href='citas.html'">
+                    <i class="fas fa-calendar-check"></i> Agendar Cita
+                </button>
+                <button class="btn btn-primary" onclick="location.href='#contact'">
+                    <i class="fas fa-phone"></i> Contacto
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Excelencia Médica con Compasión</h2>
+                <p>En Hospital Los Ángeles, su salud es nuestra prioridad. Contamos con la tecnología más avanzada y los profesionales más capacitados.</p>
+                <button class="btn-hero" onclick="location.href='citas.html'">
+                    <i class="fas fa-calendar-plus"></i> Solicitar Cita
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/hospital-hero.jpg" alt="Hospital Los Ángeles">
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Cardiología</h3>
+                    <p>Unidad de cardiología con tecnología de punta para el cuidado de su corazón.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Pediatría</h3>
+                    <p>Cuidado especializado para los más pequeños con enfoque integral.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neurología</h3>
+                    <p>Diagnóstico y tratamiento de enfermedades del sistema nervioso.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Ortopedia</h3>
+                    <p>Especialistas en el tratamiento de lesiones musculoesqueléticas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <h2>Más de 25 años de experiencia</h2>
+                <p>Fundado en 1998, Hospital Los Ángeles ha sido pionero en la implementación de tecnologías médicas avanzadas y en la formación de especialistas de alto nivel.</p>
+                <div class="stats-container">
+                    <div class="stat">
+                        <h4>50,000+</h4>
+                        <p>Pacientes atendidos anualmente</p>
+                    </div>
+                    <div class="stat">
+                        <h4>120+</h4>
+                        <p>Médicos especialistas</p>
+                    </div>
+                    <div class="stat">
+                        <h4>35+</h4>
+                        <p>Especialidades médicas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="assets/images/hospital-building.jpg" alt="Instalaciones Hospital Los Ángeles">
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2>Lo que dicen nuestros pacientes</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"El personal del Hospital Los Ángeles fue excepcional durante mi cirugía. Me sentí en las mejores manos."</p>
+                        <div class="testimonial-author">
+                            <h4>María González</h4>
+                            <p>Paciente de Cirugía General</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"La atención en urgencias fue rápida y eficiente. Los médicos fueron muy profesionales y empáticos."</p>
+                        <div class="testimonial-author">
+                            <h4>Javier Rodríguez</h4>
+                            <p>Paciente de Urgencias</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Contáctenos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Av. Principal #123, Ciudad de México</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+52 (55) 1234-5678</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>contacto@hospitalangeles.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Abierto las 24 horas, los 7 días de la semana</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form>
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Teléfono">
+                        <textarea placeholder="Mensaje" rows="5" required></textarea>
+                        <button type="submit">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Botón flotante para agendar cita -->
+    <div class="floating-btn">
+        <a href="citas.html">
+            <i class="fas fa-calendar-plus"></i>
+            <span>Agendar Cita</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Hospital Los Ángeles</h3>
+                <p>Excelencia médica con compasión y cuidado personalizado.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="citas.html">Agendar cita</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Hospital Los Ángeles. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
